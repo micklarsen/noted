@@ -12,6 +12,7 @@ function App() {
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
 
+
     const onAddNote = () => {
         const newNote = {
             id: uuid(),
@@ -20,6 +21,7 @@ function App() {
             lastModified: Date.now()
         };
 
+
         setNotes([
             newNote,
             ...notes
@@ -27,9 +29,11 @@ function App() {
         setActiveNote(newNote.id);
     };
 
+
     const onDeleteNote = (noteId) => {
         setNotes(notes.filter(({id}) => id !== noteId));
     };
+
 
     const onUpdateNote = (updatedNote) => {
         const updatedNotesArr = notes.map((note) => {
